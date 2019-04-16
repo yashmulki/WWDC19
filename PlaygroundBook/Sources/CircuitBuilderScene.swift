@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 import AVFoundation
 
+var smokeOverlay = SKSpriteNode()
+
 public class CircuitBuilderScene: SKScene {
     
     // All mutable nodes in scene
@@ -25,11 +27,17 @@ public class CircuitBuilderScene: SKScene {
     
     // Nodes
     public var microcontrollerNode = Microcontroller()
-    private var isMakingWire: Bool = false
-    private var currentWire: Wire?
-    private var wireOrigin: CGPoint?
-    private var wireOriginNode: SKSpriteNode?
-    private var wires: [Wire] = []
+    private var binNode = SKSpriteNode()
+
+    // Wires
+    var currentLine: Wire?
+    var lines:[Wire] = []
+    var lineDownPoint: CGPoint?
+    var startNode: SKSpriteNode?
+    var isBuildingWire: Bool = false
+    
+    // Sound and Haptics
+    private var audioPlayer = AVAudioPlayer()
     
     convenience init(configuration: [String: Bool]) {
         self.init()
@@ -38,65 +46,40 @@ public class CircuitBuilderScene: SKScene {
     func addComponent(atPosition: CGPoint, ofType: String) {
         switch ofType {
         case "Switch":
-            let switchNode = Switch(color: UIColor.clear, size: CGSize(width: 0.075, height: 0.075))
+            let switchNode = Switch(color: UIColor.clear, size: CGSize(width: 0.09, height: 0.09))
             switchNode.position = atPosition
             switchNode.setup()
-            let wire = Wire()
-            wire.configure(withNodes: microcontrollerNode.pins[0], node2: switchNode)
-            switchNode.connection = wire
-            microcontrollerNode.configurePin(for: 1, type: .digitalInput)
-            microcontrollerNode.pins[0].connection = wire
             self.addChild(switchNode)
-        case "RedLED":
-            let ledNode = RedLED(color: UIColor.clear, size: CGSize(width: 0.075, height: 0.075))
+        case "Red LED":
+            let ledNode = RedLED(color: UIColor.clear, size: CGSize(width: 0.09, height: 0.125))
             ledNode.position = atPosition
             ledNode.setup()
-            let wire = Wire()
-            wire.configure(withNodes: microcontrollerNode.pins[0], node2: ledNode)
-            ledNode.connection = wire
-            microcontrollerNode.configurePin(for: 1, type: .digitalOutput)
-            microcontrollerNode.pins[0].connection = wire
             self.addChild(ledNode)
-        case "GreenLED":
-            let ledNode = GreenLED(color: UIColor.clear, size: CGSize(width: 0.075, height: 0.075))
+        case "Green LED":
+            let ledNode = GreenLED(color: UIColor.clear, size: CGSize(width: 0.09, height: 0.125))
             ledNode.position = atPosition
             ledNode.setup()
-            let wire = Wire()
-            wire.configure(withNodes: microcontrollerNode.pins[0], node2: ledNode)
-            ledNode.connection = wire
-            microcontrollerNode.configurePin(for: 1, type: .digitalOutput)
-            microcontrollerNode.pins[0].connection = wire
             self.addChild(ledNode)
-        case "BlueLED":
-            let ledNode = BlueLED(color: UIColor.clear, size: CGSize(width: 0.075, height: 0.075))
+        case "Blue LED":
+            let ledNode = BlueLED(color: UIColor.clear, size: CGSize(width: 0.09, height: 0.125))
             ledNode.position = atPosition
             ledNode.setup()
-            let wire = Wire()
-            wire.configure(withNodes: microcontrollerNode.pins[0], node2: ledNode)
-            ledNode.connection = wire
-            microcontrollerNode.configurePin(for: 1, type: .digitalOutput)
-            microcontrollerNode.pins[0].connection = wire
             self.addChild(ledNode)
-        case "LightSensor":
-            let sensor = LightSensor(color: UIColor.clear, size: CGSize(width: 0.075, height: 0.075))
+        case "Light Sensor":
+            let sensor = LightSensor(color: UIColor.clear, size: CGSize(width: 0.09, height: 0.125))
             sensor.position = atPosition
             sensor.setup()
-            let wire = Wire()
-            wire.configure(withNodes: microcontrollerNode.pins[0], node2: sensor)
-            sensor.connection = wire
-            microcontrollerNode.configurePin(for: 1, type: .analogInput)
-            microcontrollerNode.pins[0].connection = wire
             self.addChild(sensor)
         case "Speaker":
-            let speaker = Speaker(color: UIColor.clear, size: CGSize(width: 0.075, height: 0.075))
+            let speaker = Speaker(color: UIColor.clear, size: CGSize(width: 0.1, height: 0.15))
             speaker.position = atPosition
             speaker.setup()
-            let wire = Wire()
-            wire.configure(withNodes: microcontrollerNode.pins[0], node2: speaker)
-            speaker.connection = wire
-            microcontrollerNode.configurePin(for: 1, type: .analogOutput)
-            microcontrollerNode.pins[0].connection = wire
             self.addChild(speaker)
+        case "Air Probe":
+            let detector = SmokeDetector(color: UIColor.clear, size: CGSize(width: 0.09, height: 0.125))
+            detector.position = atPosition
+            detector.setup()
+            self.addChild(detector)
         default:
             break
         }
@@ -109,7 +92,7 @@ public class CircuitBuilderScene: SKScene {
         self.anchorPoint = CGPoint(x: 0.0, y: 0.0)
         
         // Set up background and add to scene
-        let backgroundTexture = SKTexture(imageNamed: "BuilderBackground.png")
+        let backgroundTexture = SKTexture(imageNamed: "Background.png")
         let backgroundNode = SKSpriteNode(texture: backgroundTexture, size: CGSize(width: 0.5, height: 1))
         backgroundNode.name = "Background"
         backgroundNode.position = CGPoint(x: 0.25, y: 0.5)
@@ -121,6 +104,30 @@ public class CircuitBuilderScene: SKScene {
         microcontrollerNode.setupBase()
         microcontrollerNode.anchorPoint = CGPoint(x: 0, y: 0)
         self.addChild(microcontrollerNode)
+        
+        // Add bin to dispose of components
+        binNode = SKSpriteNode(texture: SKTexture(imageNamed: "Bin.png"), size: CGSize(width: 0.156, height: 0.265))
+        binNode.position = CGPoint(x: 0.1, y: 0.825)
+        binNode.name = "Bin"
+        self.addChild(binNode)
+        
+        // Set up audio player
+        let backgroundMusicPath = URL(fileURLWithPath: Bundle.main.path(forResource: "click", ofType: "mp3")!)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: backgroundMusicPath)
+        } catch  {
+            print("error")
+        }
+        
+        audioPlayer.volume = 1.0
+        audioPlayer.numberOfLoops = 1
+
+        // Add smoke overlay
+        smokeOverlay = SKSpriteNode(color: UIColor.lightGray, size: CGSize(width: 0.5, height: 1.0))
+        smokeOverlay.alpha = 0.0
+        smokeOverlay.position = CGPoint(x: 0.25, y: 0.5)
+        self.addChild(smokeOverlay)
     }
     
 }
@@ -132,20 +139,22 @@ extension CircuitBuilderScene {
         guard let touch = touches.first else {return}
         let position = touch.location(in: self)
         
-        // Check for anchor for wire drag
-//        let anchor = self.nodes(at: position).first { (node) -> Bool in
-//            return node is Pin
-//        }
-//        if anchor != nil {
-//            isMakingWire = true
-//            currentWire = Wire()
-//            currentWire?.anchorPoint = CGPoint(x: 0, y: 1)
-//            currentWire!.position = position
-//            addChild(currentWire!)
-//            wireOrigin = position
-//            wireOriginNode = anchor!.parent! as? SKSpriteNode
-//            return
-//        }
+        let anchor = self.nodes(at: position).first { (node) -> Bool in
+            return node is Anchor || node is Pin
+        }
+        
+        if anchor != nil {
+            startNode = anchor as? SKSpriteNode
+            currentLine = Wire(color: UIColor.lightGray, size: CGSize(width: 0.002, height: 0.01))
+            currentLine?.anchorPoint = CGPoint(x: 0.0, y: 0.0)
+            currentLine?.position = position
+            lineDownPoint = position
+            addChild(currentLine!)
+            audioPlayer.prepareToPlay()
+            isBuildingWire = true
+            return
+        }
+        
         
         // If not anchor, check for moving
         let touchedNode = self.nodes(at: position).first { (node) -> Bool in
@@ -163,20 +172,59 @@ extension CircuitBuilderScene {
         guard let touch = touches.first else {return}
         let position = touch.location(in: self)
         
-        let anchor = self.nodes(at: position).first { (node) -> Bool in
-            return node is Tappable
+        if isBuildingWire {
+            guard let current = currentLine else {return}
+            guard let start = startNode else {return}
+            guard let location = touches.first?.location(in: self) else {return}
+            let node = self.nodes(at: location).first { (node) -> Bool in
+                return node is Anchor || node is Pin
+            }
+            if node != nil && node != start {
+                if !((node is Anchor && start is Anchor) || node is Pin && start is Pin) {
+                    if start is Pin {
+                        let spriteParent = (node as! Anchor).spriteParent!
+                        current.configure(withNodes: start, node2: spriteParent)
+                        guard let pin = start as? Pin else {return}
+                        guard let anchor = node as? Anchor else {return}
+                        pin.setConnection(wire: current)
+                        anchor.spriteParent?.setConnection(wire: current)
+                    } else {
+                        let spriteParent = (start as! Anchor).spriteParent!
+                        current.configure(withNodes: spriteParent, node2: node as! SKSpriteNode)
+                        guard let pin = node as? Pin else {return}
+                        guard let anchor = start as? Anchor else {return}
+                        pin.setConnection(wire: current)
+                        anchor.spriteParent?.setConnection(wire: current)
+                    }
+                    audioPlayer.play()
+                    lines.append(current)
+                } else {
+                    current.removeFromParent()
+                }
+            } else {
+                current.removeFromParent()
+            }
+            currentLine = nil
+            lineDownPoint = nil
+            isBuildingWire = false
+            return
         }
-//        if anchor != nil {
-//            guard let originNode = wireOriginNode as? Component else {return}
-//            guard let originPoint = wireOrigin else {return}
-//            guard let current = currentWire else {return}
-//            current.configure(withNodes: originNode, node2: anchor!.parent! as! SKSpriteNode)
-//            originNode.setConnection(wire: current)
-//            wires.append(current)
-//            // Update graphics
-//
-//            return
-//        }
+        
+        // Check for bin
+        let binNode = nodes(at: position).first { (node) -> Bool in
+            return node.name == "Bin"
+        }
+        let otherNode = nodes(at: position).first { (node) -> Bool in
+            return node is Component
+        }
+        
+        if binNode != nil {
+            if let node = otherNode as? Component {
+                node.setConnection(wire: Wire())
+                node.removeFromParent()
+            }
+        }
+        
         // Check for tap if its not an anchor
         guard let end = lastTouchPosition else {return}
         let dist = calcDistance(first: end, second: position)
@@ -195,11 +243,18 @@ extension CircuitBuilderScene {
         guard let touch = touches.first else {return}
         let positionInScene = touch.location(in: self)
         
-        // Wire stuff
-        if isMakingWire {
-            // Update wire position
-            guard let originNode = wireOriginNode else {return}
-            
+        if isBuildingWire {
+            guard let current = currentLine else {return}
+            guard let newLocation = touches.first?.location(in: self) else {return}
+            guard let origin = lineDownPoint else {return}
+            let distance = hypot(newLocation.x - origin.x, newLocation.y - origin.y)
+            let vector = CGVector(dx: newLocation.x - origin.x, dy: newLocation.y - origin.y)
+            let straight = CGVector(dx:0, dy: 1)
+            let angle = atan2(vector.dy, vector.dx) - atan2(straight.dy, straight.dx)
+            current.zRotation = angle
+            current.size.height = distance
+            current.position = origin
+            return
         }
         
         // Check pan if not wire
@@ -213,23 +268,17 @@ extension CircuitBuilderScene {
         let position = lastTouched.position
         let aNewPosition = CGPoint(x: position.x + translation.x, y: position.y + translation.y)
         lastTouched.position = aNewPosition
+        
+        if lastTouched is Component {
+            let last = lastTouched as! Component
+            last.moveConnections()
+        }
+        
     }
 
     func calcDistance(first: CGPoint, second: CGPoint) -> Float {
         return hypotf(Float(second.x - first.x), Float(second.y - first.y));
     }
-    
+
     
 }
-
-extension CircuitBuilderScene {
-//    func drawWire(wire: Wire) {
-//        guard let first = wire.component1 as? SKNode else { return }
-//        guard let second = wire.component2 as? SKNode else {return}
-//       // let startingPos = convert(first.position, from: parent!)
-//        //let endingPos = convert(second.position, from: parent!)
-//        drawLine(fromPoint: first.position, toPoint: second.position)
-//    }
-//
-}
-

@@ -26,9 +26,8 @@ var handler = MessageHandler()
 remoteView.delegate = handler
 
 class MicrocontrollerInterface {
-    
     func configure(pin: Int, type: PinType) {
-        if pin <=5 {
+        if pin <= 5 && pin > 0 {
             if type == .analogInput {
                 dataBuffer[pin] = .floatingPoint(0.0)
             } else if type == .digitalInput {
@@ -42,13 +41,13 @@ class MicrocontrollerInterface {
     
     
     func writeDigital(pin: Int, data: Bool) {
-        if pin <= 5 {
+        if pin <= 5 && pin > 0 {
             remoteView.send(.dictionary(["Type" : .string("WriteBool"), "Pin" : .integer(pin), "Data" : .boolean(data)]))
         }
     }
     
     func writeAnalog(pin: Int, data: Double) {
-        if pin <= 5 {
+        if pin <= 5 && pin > 0 {
             remoteView.send(.dictionary(["Type" : .string("WriteDouble"), "Pin" : .integer(pin), "Data" : .floatingPoint(data)]))
         }
     }
@@ -56,7 +55,7 @@ class MicrocontrollerInterface {
     
     
     func readDigital(pin: Int) -> Bool {
-        if pin <= 5 {
+        if pin <= 5 && pin > 0 {
             remoteView.send(.dictionary(["Type" : .string("ReadBool"), "Pin" : .integer(pin)]))
             
             guard let myVal = dataBuffer[pin] else {return false}
@@ -66,11 +65,13 @@ class MicrocontrollerInterface {
             } else {
                 return false
             }
+        } else {
+            return false
         }
     }
     
     func readAnalog(pin: Int) -> Double {
-        if pin <= 5 {
+        if pin <= 5 && pin > 0 {
             remoteView.send(.dictionary(["Type" : .string("ReadDouble"), "Pin" : .integer(pin)]))
             
             guard let myVal = dataBuffer[pin] else {return 0.0}
@@ -80,13 +81,11 @@ class MicrocontrollerInterface {
             } else {
                 return 0.0
             }
+        } else {
+            return 0.0
         }
     }
 }
-
-
-
-
 //#-end-hidden-code
 
 /*:
@@ -95,15 +94,15 @@ class MicrocontrollerInterface {
  
  You can now try to make anything you'd like with the things you have learned. When you are done, move to the next page
  
- Remember, to configure a pin you use the configure(pin: Int, type: PinType) function
- To write a digital value you use the writeDigital(pin: Int, value: Bool) function
- To write an analog value you use the writeDigital(pin: Int, value: Double) function
- To read a digital value you use the readDigital(pin: Int) -> Bool function
- To read an analog value you use the readAnalog(pin: Int) -> Double function
+ Remember, to configure a pin you use the mc.configure(pin: Int, type: PinType) function
+ To write a digital value you use the mc.writeDigital(pin: Int, value: Bool) function
+ To write an analog value you use the mc.writeDigital(pin: Int, value: Double) function
+ To read a digital value you use the mc.readDigital(pin: Int) -> Bool function
+ To read an analog value you use the mc.readAnalog(pin: Int) -> Double function
 
  PinType is an enum with cases .digitalInput, .digitalOutput, .analogInput, .analogOutput
  
- */
+*/
 
 var mc = MicrocontrollerInterface()
 
@@ -116,10 +115,18 @@ func loop() {
     
 }
 
-
-//: Run your code once you are done. Once your input has been validated, you can move onto the next page.
+/*:
+ ### Credits
+ I used the following resources in my app
+ Background Music: bensound.com
+ Sound Effects: freesfx.co.uk
+ Arduino Images: arduino.cc
+ Airpods Image: flaticon.com
+ Smog Image: 
+ */
 
 //#-hidden-code
+
 setup()
 var timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (timer) in
     loop()
@@ -128,11 +135,3 @@ RunLoop.main.run(until: Date(timeIntervalSinceNow: 1800))
 
 //#-end-hidden-code
 
-/*:
- ### Credits
- I used the following resources in my app
- Background Music: bensound.com
- Sound Effects: freesfx.co.uk
- Arduino images: arduino.cc
- Airpods image: flaticon.com
- */

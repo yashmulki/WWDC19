@@ -3,12 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Name</key>
-	<string>Practical</string>
+	<string>Demonstration</string>
 	<key>LiveViewEdgeToEdge</key>
 	<false/>
 	<key>Pages</key>
 	<array>
 		<string>Basics.playgroundpage</string>
+		<string>Analog.playgroundpage</string>
+		<string>Alarm.playgroundpage</string>
+		<string>Sandbox.playgroundpage</string>
 	</array>
 </dict>
 </plist>

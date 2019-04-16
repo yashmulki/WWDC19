@@ -7,6 +7,14 @@
 
 import UIKit
 
-class Analog: Component {
-
+public class Analog: Component {
+    private var state = 0.0
+    
+    func setState(state: Double) {
+        self.state = state
+    }
+    
+    func getState() -> Double {
+        return state
+    }
 }

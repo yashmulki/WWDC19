@@ -7,6 +7,15 @@
 
 import UIKit
 
-class Digital: Component {
-
+public class Digital: Component {
+    private var state = false
+    
+    func setState(state: Bool) {
+        self.state = state
+    }
+    
+    func getState() -> Bool {
+        return state
+    }
+    
 }

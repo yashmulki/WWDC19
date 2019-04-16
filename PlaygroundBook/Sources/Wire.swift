@@ -8,50 +8,28 @@
 import UIKit
 import SpriteKit
 
-class Wire: SKSpriteNode, Moveable {
+public class Wire: SKSpriteNode {
+    var start: SKSpriteNode?
+    var end: SKSpriteNode?
     
-    func moveConnections() {
-        
-    }
-
-    var component1: Anchor?
-    var component2: Anchor?
-    
-    func sendState(direction: Bool, state: Bool) {
-        if direction {
-            if component2 is ActuatorAnchor {
-                guard let comp = component2 as? ActuatorAnchor else {return}
-                comp.transferState(state: state)
-            }
-        } else {
-            if component1 is ActuatorAnchor {
-                guard let comp = component1 as? ActuatorAnchor else {return}
-                comp.transferState(state: state)
-            }
+    func getOtherNode(forNode: SKSpriteNode) -> SKSpriteNode{
+        guard let s = start else {return forNode}
+        guard let e = end else {return forNode}
+        if s.isEqual(forNode) {
+            return e
         }
+        return s
     }
     
-    func getState(fromFirst: Bool) -> Bool {
-        if fromFirst {
-            if component1 is SensorAnchor {
-                guard let comp = component1 as? SensorAnchor else {return false}
-                return comp.sendState()
-        } else {
-            if component2 is SensorAnchor {
-                guard let comp = component2 as? SensorAnchor else {return false}
-                return comp.sendState()
-            }
-        }
-        }
-        print("Invalid")
-        return false
+    func configure(withNodes node1: SKSpriteNode, node2: SKSpriteNode) {
+        start = node1
+        end = node2
+//        var circleNode1 = SKSpriteNode(color: .white, size: CGSize(width: 0.1, height: 0.1))
+//        var circleNode2 = SKSpriteNode(color: .white, size: CGSize(width: 0.1, height: 0.1))
+//        circleNode1.position = CGPoint(x: 0.5, y: 0)
+//        circleNode2.position = CGPoint(x: 0.5, y: 1)
+//        addChild(circleNode1)
+//        addChild(circleNode2)
     }
-
-        
-        func testConfigure(starting: Anchor, ending: Anchor) {
-            component1 = starting
-            component2 = ending
-        }
-        
     
-    }
+}

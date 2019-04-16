@@ -6,5 +6,7 @@
 	<string>Basics</string>
 	<key>LiveViewMode</key>
 	<string>VisibleByDefault</string>
+	<key>LiveViewEdgeToEdge</key>
+	<true/>
 </dict>
 </plist>

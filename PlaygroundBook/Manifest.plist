@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Version</key>
-	<string>4.2</string>
+	<string>4.0</string>
 	<key>ContentIdentifier</key>
 	<string>me.yashmulki.microcotrollers</string>
 	<key>ContentVersion</key>
@@ -13,15 +13,18 @@
 	<key>DeploymentTarget</key>
 	<string>ios12.0</string>
 	<key>SwiftVersion</key>
-	<string>$(SWIFT_VERSION)</string>
+	<string>4.2</string>
 	<key>Name</key>
 	<string>Microcontrollers</string>
 	<key>UserModuleMode</key>
 	<string>Disabled</string>
+	<key>ImageReference</key>
+	<string>Cover.png</string>
 	<key>Chapters</key>
 	<array>
 		<string>Introduction.playgroundchapter</string>
 		<string>Practical.playgroundchapter</string>
+		<string>Conclusion.playgroundchapter</string>
 	</array>
 </dict>
 </plist>

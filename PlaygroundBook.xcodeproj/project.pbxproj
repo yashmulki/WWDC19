@@ -7,31 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		020C7D4B223D4204008BE0AB /* photoresistor.png in Resources */ = {isa = PBXBuildFile; fileRef = 020C7D4A223D4204008BE0AB /* photoresistor.png */; };
-		020C7D4C223D4204008BE0AB /* photoresistor.png in Resources */ = {isa = PBXBuildFile; fileRef = 020C7D4A223D4204008BE0AB /* photoresistor.png */; };
-		020C7D4E223D42C8008BE0AB /* LightSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D4D223D42C8008BE0AB /* LightSensor.swift */; };
+		020C7D51223D4BD8008BE0AB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D50223D4BD8008BE0AB /* Protocols.swift */; };
+		020C7D5A223D58AB008BE0AB /* Analog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D59223D58AB008BE0AB /* Analog.swift */; };
+		020C7D5C223D58B2008BE0AB /* Digital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D5B223D58B2008BE0AB /* Digital.swift */; };
+		020C7D5E223D744F008BE0AB /* LED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D5D223D744F008BE0AB /* LED.swift */; };
+		020C7D60223D74C2008BE0AB /* RedLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D5F223D74C2008BE0AB /* RedLED.swift */; };
+		020C7D62223D7BDE008BE0AB /* BlueLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D61223D7BDE008BE0AB /* BlueLED.swift */; };
+		020C7D64223D7BEC008BE0AB /* GreenLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D63223D7BEC008BE0AB /* GreenLED.swift */; };
+		020C7D66223D7DEA008BE0AB /* LightSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D65223D7DEA008BE0AB /* LightSensor.swift */; };
+		020C7D68223D81F1008BE0AB /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C7D67223D81F1008BE0AB /* Speaker.swift */; };
+		02343F5D223E8A3B00F9A5C3 /* Arduino.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A0E223B53190041C27A /* Arduino.png */; };
 		023A19EA223B38EB0041C27A /* CircuitBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A19E9223B38EB0041C27A /* CircuitBuilderViewController.swift */; };
 		023A19EC223B3E590041C27A /* Microcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A19EB223B3E590041C27A /* Microcontroller.swift */; };
 		023A19EE223B3EC10041C27A /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A19ED223B3EC10041C27A /* Wire.swift */; };
 		023A19F0223B3EE10041C27A /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A19EF223B3EE10041C27A /* Component.swift */; };
-		023A19F2223B3F010041C27A /* SensorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A19F1223B3F010041C27A /* SensorComponent.swift */; };
-		023A19F4223B3F290041C27A /* ActuatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A19F3223B3F290041C27A /* ActuatorComponent.swift */; };
-		023A19F8223B46080041C27A /* CircuitBuilderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A19F7223B46080041C27A /* CircuitBuilderScene.swift */; };
-		023A19FB223B4A420041C27A /* BuilderBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A19FA223B4A420041C27A /* BuilderBackground.png */; };
-		023A19FC223B4A420041C27A /* BuilderBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A19FA223B4A420041C27A /* BuilderBackground.png */; };
 		023A1A0F223B53190041C27A /* Arduino.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A0E223B53190041C27A /* Arduino.png */; };
-		023A1A10223B53190041C27A /* Arduino.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A0E223B53190041C27A /* Arduino.png */; };
 		023A1A13223BF9310041C27A /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1A12223BF9310041C27A /* Switch.swift */; };
 		023A1A1E223BFF6C0041C27A /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1A1D223BFF6C0041C27A /* ComponentCollectionViewCell.swift */; };
-		023A1A21223C0C530041C27A /* Switch_On.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A1F223C0C530041C27A /* Switch_On.png */; };
-		023A1A22223C0C530041C27A /* Switch_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A20223C0C530041C27A /* Switch_Off.png */; };
-		023A1A23223C0C5A0041C27A /* Switch_On.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A1F223C0C530041C27A /* Switch_On.png */; };
-		023A1A24223C0C5D0041C27A /* Switch_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A20223C0C530041C27A /* Switch_Off.png */; };
-		023A1A2F223C5C970041C27A /* Lightbulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1A2E223C5C970041C27A /* Lightbulb.swift */; };
 		023A1A31223C62E40041C27A /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1A30223C62E40041C27A /* Pin.swift */; };
-		023A1A33223C635C0041C27A /* Receptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1A32223C635C0041C27A /* Receptor.swift */; };
-		023A1A35223C7C280041C27A /* BuilderBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A34223C7C280041C27A /* BuilderBackground.jpg */; };
-		023A1A36223C7C280041C27A /* BuilderBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 023A1A34223C7C280041C27A /* BuilderBackground.jpg */; };
+		025329EE224089860028C183 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025329ED224089860028C183 /* Anchor.swift */; };
+		025329F322408AF90028C183 /* Anchor.png in Resources */ = {isa = PBXBuildFile; fileRef = 025329F222408AF90028C183 /* Anchor.png */; };
+		025329F422408AF90028C183 /* Anchor.png in Resources */ = {isa = PBXBuildFile; fileRef = 025329F222408AF90028C183 /* Anchor.png */; };
+		025C457E22468FEA00956826 /* Cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 025C457D22468FEA00956826 /* Cover.png */; };
+		025C457F22468FEA00956826 /* Cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 025C457D22468FEA00956826 /* Cover.png */; };
+		028F2AD822446492007F54BC /* SmokeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028F2AD722446492007F54BC /* SmokeDetector.swift */; };
+		02924EAD22466DCF00F3A9B9 /* SmokeDetector.png in Resources */ = {isa = PBXBuildFile; fileRef = 02924EAC22466DCE00F3A9B9 /* SmokeDetector.png */; };
+		02924EAE22466DCF00F3A9B9 /* SmokeDetector.png in Resources */ = {isa = PBXBuildFile; fileRef = 02924EAC22466DCE00F3A9B9 /* SmokeDetector.png */; };
+		029B3C9E22403D37009ED1C1 /* LightSensor.png in Resources */ = {isa = PBXBuildFile; fileRef = 029B3C9A22403D37009ED1C1 /* LightSensor.png */; };
+		029B3C9F22403D37009ED1C1 /* LightSensor.png in Resources */ = {isa = PBXBuildFile; fileRef = 029B3C9A22403D37009ED1C1 /* LightSensor.png */; };
+		029B3CA022403D37009ED1C1 /* BlueLED.png in Resources */ = {isa = PBXBuildFile; fileRef = 029B3C9B22403D37009ED1C1 /* BlueLED.png */; };
+		029B3CA122403D37009ED1C1 /* BlueLED.png in Resources */ = {isa = PBXBuildFile; fileRef = 029B3C9B22403D37009ED1C1 /* BlueLED.png */; };
+		029B3CA422403D37009ED1C1 /* GreenLED.png in Resources */ = {isa = PBXBuildFile; fileRef = 029B3C9D22403D37009ED1C1 /* GreenLED.png */; };
+		029B3CA522403D37009ED1C1 /* GreenLED.png in Resources */ = {isa = PBXBuildFile; fileRef = 029B3C9D22403D37009ED1C1 /* GreenLED.png */; };
+		029B3CA722403EBF009ED1C1 /* Speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 029B3CA622403EBF009ED1C1 /* Speaker.png */; };
+		029B3CA822403EBF009ED1C1 /* Speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 029B3CA622403EBF009ED1C1 /* Speaker.png */; };
+		02C07DDE223EFB7000EDC07A /* CircuitBuilderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C07DDD223EFB6F00EDC07A /* CircuitBuilderScene.swift */; };
+		02C07DE0223EFD4000EDC07A /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C07DDF223EFD4000EDC07A /* Background.png */; };
+		02C07DE1223EFD4000EDC07A /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C07DDF223EFD4000EDC07A /* Background.png */; };
+		02C07DE4223F0E2800EDC07A /* LEDOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C07DE2223F0E2700EDC07A /* LEDOff.png */; };
+		02C07DE5223F0E2800EDC07A /* LEDOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C07DE2223F0E2700EDC07A /* LEDOff.png */; };
+		02C07DE6223F0E2800EDC07A /* REDLed.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C07DE3223F0E2800EDC07A /* REDLed.png */; };
+		02C07DE7223F0E2800EDC07A /* REDLed.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C07DE3223F0E2800EDC07A /* REDLed.png */; };
+		02E56EF5224597FD00C49781 /* Switch_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E56EF4224597FD00C49781 /* Switch_Off.png */; };
+		02E56EF6224597FD00C49781 /* Switch_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E56EF4224597FD00C49781 /* Switch_Off.png */; };
+		02E56EF82245980300C49781 /* Switch_On.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E56EF72245980200C49781 /* Switch_On.png */; };
+		02E56EF92245980300C49781 /* Switch_On.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E56EF72245980200C49781 /* Switch_On.png */; };
+		02E56EFB224598B900C49781 /* Bin.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E56EFA224598B900C49781 /* Bin.png */; };
+		02E56EFC224598B900C49781 /* Bin.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E56EFA224598B900C49781 /* Bin.png */; };
+		02E56EFE224599FB00C49781 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02E56EFD224599FB00C49781 /* backgroundmusic.mp3 */; };
+		02E56EFF224599FB00C49781 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02E56EFD224599FB00C49781 /* backgroundmusic.mp3 */; };
+		02E56F0122459A7E00C49781 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02E56F0022459A7D00C49781 /* alarm.mp3 */; };
+		02E56F0222459A7E00C49781 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02E56F0022459A7D00C49781 /* alarm.mp3 */; };
+		02E56F0422459B7F00C49781 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02E56F0322459B7F00C49781 /* click.mp3 */; };
+		02E56F0522459B7F00C49781 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02E56F0322459B7F00C49781 /* click.mp3 */; };
 		5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */; };
 		5E086DD32051E3A3004D8D25 /* Manifest.plist in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5E086DCF2051DF0F004D8D25 /* Manifest.plist */; };
 		5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */; };
@@ -115,25 +143,42 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		020C7D4A223D4204008BE0AB /* photoresistor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoresistor.png; sourceTree = "<group>"; };
-		020C7D4D223D42C8008BE0AB /* LightSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSensor.swift; sourceTree = "<group>"; };
+		020C7D50223D4BD8008BE0AB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		020C7D59223D58AB008BE0AB /* Analog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analog.swift; sourceTree = "<group>"; };
+		020C7D5B223D58B2008BE0AB /* Digital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital.swift; sourceTree = "<group>"; };
+		020C7D5D223D744F008BE0AB /* LED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LED.swift; sourceTree = "<group>"; };
+		020C7D5F223D74C2008BE0AB /* RedLED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedLED.swift; sourceTree = "<group>"; };
+		020C7D61223D7BDE008BE0AB /* BlueLED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueLED.swift; sourceTree = "<group>"; };
+		020C7D63223D7BEC008BE0AB /* GreenLED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenLED.swift; sourceTree = "<group>"; };
+		020C7D65223D7DEA008BE0AB /* LightSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSensor.swift; sourceTree = "<group>"; };
+		020C7D67223D81F1008BE0AB /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		023A19E9223B38EB0041C27A /* CircuitBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitBuilderViewController.swift; sourceTree = "<group>"; };
 		023A19EB223B3E590041C27A /* Microcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Microcontroller.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		023A19ED223B3EC10041C27A /* Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
 		023A19EF223B3EE10041C27A /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
-		023A19F1223B3F010041C27A /* SensorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorComponent.swift; sourceTree = "<group>"; };
-		023A19F3223B3F290041C27A /* ActuatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActuatorComponent.swift; sourceTree = "<group>"; };
-		023A19F7223B46080041C27A /* CircuitBuilderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitBuilderScene.swift; sourceTree = "<group>"; };
-		023A19FA223B4A420041C27A /* BuilderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuilderBackground.png; sourceTree = "<group>"; };
 		023A1A0E223B53190041C27A /* Arduino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arduino.png; sourceTree = "<group>"; };
 		023A1A12223BF9310041C27A /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
 		023A1A1D223BFF6C0041C27A /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
-		023A1A1F223C0C530041C27A /* Switch_On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switch_On.png; sourceTree = "<group>"; };
-		023A1A20223C0C530041C27A /* Switch_Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switch_Off.png; sourceTree = "<group>"; };
-		023A1A2E223C5C970041C27A /* Lightbulb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lightbulb.swift; sourceTree = "<group>"; };
 		023A1A30223C62E40041C27A /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
-		023A1A32223C635C0041C27A /* Receptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receptor.swift; sourceTree = "<group>"; };
-		023A1A34223C7C280041C27A /* BuilderBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BuilderBackground.jpg; sourceTree = "<group>"; };
+		025329ED224089860028C183 /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
+		025329F222408AF90028C183 /* Anchor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Anchor.png; sourceTree = "<group>"; };
+		025C457D22468FEA00956826 /* Cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cover.png; sourceTree = "<group>"; };
+		028F2AD722446492007F54BC /* SmokeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeDetector.swift; sourceTree = "<group>"; };
+		02924EAC22466DCE00F3A9B9 /* SmokeDetector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmokeDetector.png; sourceTree = "<group>"; };
+		029B3C9A22403D37009ED1C1 /* LightSensor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightSensor.png; sourceTree = "<group>"; };
+		029B3C9B22403D37009ED1C1 /* BlueLED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueLED.png; sourceTree = "<group>"; };
+		029B3C9D22403D37009ED1C1 /* GreenLED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenLED.png; sourceTree = "<group>"; };
+		029B3CA622403EBF009ED1C1 /* Speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Speaker.png; sourceTree = "<group>"; };
+		02C07DDD223EFB6F00EDC07A /* CircuitBuilderScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitBuilderScene.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		02C07DDF223EFD4000EDC07A /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		02C07DE2223F0E2700EDC07A /* LEDOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LEDOff.png; sourceTree = "<group>"; };
+		02C07DE3223F0E2800EDC07A /* REDLed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = REDLed.png; sourceTree = "<group>"; };
+		02E56EF4224597FD00C49781 /* Switch_Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switch_Off.png; sourceTree = "<group>"; };
+		02E56EF72245980200C49781 /* Switch_On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switch_On.png; sourceTree = "<group>"; };
+		02E56EFA224598B900C49781 /* Bin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bin.png; sourceTree = "<group>"; };
+		02E56EFD224599FB00C49781 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundmusic.mp3; sourceTree = "<group>"; };
+		02E56F0022459A7D00C49781 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		02E56F0322459B7F00C49781 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		5E086DC02051C5A7004D8D25 /* PlaygroundBook.playgroundbook */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundBook.playgroundbook; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E086DC72051DD03004D8D25 /* BookOverridingBuildSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BookOverridingBuildSettings.xcconfig; sourceTree = "<group>"; };
 		5E086DCD2051DDB8004D8D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LiveView.storyboard; sourceTree = "<group>"; };
@@ -180,8 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				023A19E9223B38EB0041C27A /* CircuitBuilderViewController.swift */,
+				020C7D50223D4BD8008BE0AB /* Protocols.swift */,
 				023A1A1D223BFF6C0041C27A /* ComponentCollectionViewCell.swift */,
-				023A19F7223B46080041C27A /* CircuitBuilderScene.swift */,
+				02C07DDD223EFB6F00EDC07A /* CircuitBuilderScene.swift */,
 			);
 			name = CircuitBuilder;
 			sourceTree = "<group>";
@@ -199,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				023A19EB223B3E590041C27A /* Microcontroller.swift */,
+				025329ED224089860028C183 /* Anchor.swift */,
 				023A1A30223C62E40041C27A /* Pin.swift */,
 				023A19ED223B3EC10041C27A /* Wire.swift */,
 				023A1A1B223BF9AA0041C27A /* Sensors */,
@@ -211,8 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				023A19EF223B3EE10041C27A /* Component.swift */,
-				023A19F1223B3F010041C27A /* SensorComponent.swift */,
-				023A19F3223B3F290041C27A /* ActuatorComponent.swift */,
+				020C7D59223D58AB008BE0AB /* Analog.swift */,
+				020C7D5B223D58B2008BE0AB /* Digital.swift */,
 			);
 			name = Abstraction;
 			sourceTree = "<group>";
@@ -220,9 +267,9 @@
 		023A1A1B223BF9AA0041C27A /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
-				023A1A32223C635C0041C27A /* Receptor.swift */,
 				023A1A12223BF9310041C27A /* Switch.swift */,
-				020C7D4D223D42C8008BE0AB /* LightSensor.swift */,
+				020C7D65223D7DEA008BE0AB /* LightSensor.swift */,
+				028F2AD722446492007F54BC /* SmokeDetector.swift */,
 			);
 			name = Sensors;
 			sourceTree = "<group>";
@@ -230,7 +277,11 @@
 		023A1A1C223BF9AF0041C27A /* Actuators */ = {
 			isa = PBXGroup;
 			children = (
-				023A1A2E223C5C970041C27A /* Lightbulb.swift */,
+				020C7D5D223D744F008BE0AB /* LED.swift */,
+				020C7D5F223D74C2008BE0AB /* RedLED.swift */,
+				020C7D61223D7BDE008BE0AB /* BlueLED.swift */,
+				020C7D63223D7BEC008BE0AB /* GreenLED.swift */,
+				020C7D67223D81F1008BE0AB /* Speaker.swift */,
 			);
 			name = Actuators;
 			sourceTree = "<group>";
@@ -344,12 +395,23 @@
 		5EF2F9792054B64800191409 /* PrivateResources */ = {
 			isa = PBXGroup;
 			children = (
-				020C7D4A223D4204008BE0AB /* photoresistor.png */,
-				023A1A34223C7C280041C27A /* BuilderBackground.jpg */,
-				023A1A20223C0C530041C27A /* Switch_Off.png */,
-				023A1A1F223C0C530041C27A /* Switch_On.png */,
+				02C07DDF223EFD4000EDC07A /* Background.png */,
+				025329F222408AF90028C183 /* Anchor.png */,
+				02E56EFD224599FB00C49781 /* backgroundmusic.mp3 */,
+				02E56F0022459A7D00C49781 /* alarm.mp3 */,
+				025C457D22468FEA00956826 /* Cover.png */,
+				02E56F0322459B7F00C49781 /* click.mp3 */,
+				029B3C9B22403D37009ED1C1 /* BlueLED.png */,
+				029B3C9D22403D37009ED1C1 /* GreenLED.png */,
+				02E56EFA224598B900C49781 /* Bin.png */,
+				029B3C9A22403D37009ED1C1 /* LightSensor.png */,
+				02924EAC22466DCE00F3A9B9 /* SmokeDetector.png */,
+				029B3CA622403EBF009ED1C1 /* Speaker.png */,
+				02C07DE2223F0E2700EDC07A /* LEDOff.png */,
+				02E56EF4224597FD00C49781 /* Switch_Off.png */,
+				02E56EF72245980200C49781 /* Switch_On.png */,
+				02C07DE3223F0E2800EDC07A /* REDLed.png */,
 				023A1A0E223B53190041C27A /* Arduino.png */,
-				023A19FA223B4A420041C27A /* BuilderBackground.png */,
 				5EF2F97E2054B6E400191409 /* ManifestPlist.strings */,
 				5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */,
 			);
@@ -481,13 +543,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				023A1A0F223B53190041C27A /* Arduino.png in Resources */,
-				020C7D4B223D4204008BE0AB /* photoresistor.png in Resources */,
-				023A1A35223C7C280041C27A /* BuilderBackground.jpg in Resources */,
-				023A19FB223B4A420041C27A /* BuilderBackground.png in Resources */,
+				02C07DE4223F0E2800EDC07A /* LEDOff.png in Resources */,
+				02C07DE0223EFD4000EDC07A /* Background.png in Resources */,
+				02E56EFB224598B900C49781 /* Bin.png in Resources */,
 				5EF2F97C2054B6E400191409 /* ManifestPlist.strings in Resources */,
-				023A1A22223C0C530041C27A /* Switch_Off.png in Resources */,
+				029B3CA422403D37009ED1C1 /* GreenLED.png in Resources */,
+				02E56EF5224597FD00C49781 /* Switch_Off.png in Resources */,
+				02E56EFE224599FB00C49781 /* backgroundmusic.mp3 in Resources */,
+				029B3CA722403EBF009ED1C1 /* Speaker.png in Resources */,
+				02E56F0422459B7F00C49781 /* click.mp3 in Resources */,
+				029B3C9E22403D37009ED1C1 /* LightSensor.png in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
-				023A1A21223C0C530041C27A /* Switch_On.png in Resources */,
+				02E56F0122459A7E00C49781 /* alarm.mp3 in Resources */,
+				02924EAD22466DCF00F3A9B9 /* SmokeDetector.png in Resources */,
+				029B3CA022403D37009ED1C1 /* BlueLED.png in Resources */,
+				025329F322408AF90028C183 /* Anchor.png in Resources */,
+				02E56EF82245980300C49781 /* Switch_On.png in Resources */,
+				02C07DE6223F0E2800EDC07A /* REDLed.png in Resources */,
+				025C457E22468FEA00956826 /* Cover.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,13 +568,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				020C7D4C223D4204008BE0AB /* photoresistor.png in Resources */,
-				023A1A10223B53190041C27A /* Arduino.png in Resources */,
-				023A1A24223C0C5D0041C27A /* Switch_Off.png in Resources */,
+				02E56F0522459B7F00C49781 /* click.mp3 in Resources */,
+				029B3CA822403EBF009ED1C1 /* Speaker.png in Resources */,
+				02C07DE7223F0E2800EDC07A /* REDLed.png in Resources */,
+				02924EAE22466DCF00F3A9B9 /* SmokeDetector.png in Resources */,
+				029B3C9F22403D37009ED1C1 /* LightSensor.png in Resources */,
+				02E56F0222459A7E00C49781 /* alarm.mp3 in Resources */,
+				025329F422408AF90028C183 /* Anchor.png in Resources */,
+				025C457F22468FEA00956826 /* Cover.png in Resources */,
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
-				023A1A36223C7C280041C27A /* BuilderBackground.jpg in Resources */,
-				023A1A23223C0C5A0041C27A /* Switch_On.png in Resources */,
-				023A19FC223B4A420041C27A /* BuilderBackground.png in Resources */,
+				02343F5D223E8A3B00F9A5C3 /* Arduino.png in Resources */,
+				029B3CA522403D37009ED1C1 /* GreenLED.png in Resources */,
+				02C07DE1223EFD4000EDC07A /* Background.png in Resources */,
+				02E56EFF224599FB00C49781 /* backgroundmusic.mp3 in Resources */,
+				02E56EF6224597FD00C49781 /* Switch_Off.png in Resources */,
+				02C07DE5223F0E2800EDC07A /* LEDOff.png in Resources */,
+				02E56EFC224598B900C49781 /* Bin.png in Resources */,
+				029B3CA122403D37009ED1C1 /* BlueLED.png in Resources */,
+				02E56EF92245980300C49781 /* Switch_On.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,21 +623,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023A19F4223B3F290041C27A /* ActuatorComponent.swift in Sources */,
-				023A19F8223B46080041C27A /* CircuitBuilderScene.swift in Sources */,
-				023A19F2223B3F010041C27A /* SensorComponent.swift in Sources */,
+				020C7D64223D7BEC008BE0AB /* GreenLED.swift in Sources */,
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
 				023A19F0223B3EE10041C27A /* Component.swift in Sources */,
 				023A19EE223B3EC10041C27A /* Wire.swift in Sources */,
 				023A1A31223C62E40041C27A /* Pin.swift in Sources */,
+				020C7D62223D7BDE008BE0AB /* BlueLED.swift in Sources */,
+				025329EE224089860028C183 /* Anchor.swift in Sources */,
+				020C7D5E223D744F008BE0AB /* LED.swift in Sources */,
+				028F2AD822446492007F54BC /* SmokeDetector.swift in Sources */,
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
-				023A1A2F223C5C970041C27A /* Lightbulb.swift in Sources */,
-				023A1A33223C635C0041C27A /* Receptor.swift in Sources */,
+				020C7D5C223D58B2008BE0AB /* Digital.swift in Sources */,
+				020C7D5A223D58AB008BE0AB /* Analog.swift in Sources */,
+				02C07DDE223EFB7000EDC07A /* CircuitBuilderScene.swift in Sources */,
 				023A19EC223B3E590041C27A /* Microcontroller.swift in Sources */,
+				020C7D66223D7DEA008BE0AB /* LightSensor.swift in Sources */,
+				020C7D51223D4BD8008BE0AB /* Protocols.swift in Sources */,
 				023A19EA223B38EB0041C27A /* CircuitBuilderViewController.swift in Sources */,
+				020C7D68223D81F1008BE0AB /* Speaker.swift in Sources */,
 				023A1A1E223BFF6C0041C27A /* ComponentCollectionViewCell.swift in Sources */,
 				023A1A13223BF9310041C27A /* Switch.swift in Sources */,
-				020C7D4E223D42C8008BE0AB /* LightSensor.swift in Sources */,
+				020C7D60223D74C2008BE0AB /* RedLED.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,7 +842,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MX7F8VC2CH;
+				DEVELOPMENT_TEAM = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = LiveViewTestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -763,6 +853,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.LiveViewTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
 					"\"$(OTHER_FRAMEWORKS_DIR)\"",
@@ -777,7 +868,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MX7F8VC2CH;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LiveViewTestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -787,6 +878,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.LiveViewTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
 					"\"$(OTHER_FRAMEWORKS_DIR)\"",
 					"$(inherited)",

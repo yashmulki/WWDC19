@@ -10,7 +10,7 @@ import UIKit
 import PlaygroundSupport
 
 @objc(Book_Sources_LiveViewController)
-public class LiveViewController: UIViewController, PlaygroundLiveViewMessageHandler, PlaygroundLiveViewSafeAreaContainer {
+public class LiveViewController: UIViewController {
     /*
     public func liveViewMessageConnectionOpened() {
         // Implement this method to be notified when the live view message connection is opened.

@@ -8,6 +8,8 @@
 import UIKit
 import PlaygroundSupport
 
+var instance = CircuitBuilderViewController()
+
 /// Instantiates a new instance of a live view.
 ///
 /// By default, this loads an instance of `LiveViewController` from `LiveView.storyboard`.
@@ -23,6 +25,8 @@ public func instantiateLiveView(id: String) -> PlaygroundLiveViewable {
 //    }
 //
 //    return liveViewController
-    return CircuitBuilderViewController()
+    instance = CircuitBuilderViewController()
+    instance.configure(type: id)
+    return instance
 }
 

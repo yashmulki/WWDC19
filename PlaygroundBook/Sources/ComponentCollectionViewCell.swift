@@ -25,12 +25,12 @@ class ComponentCollectionViewCell: UICollectionViewCell {
     }
     
      override init(frame: CGRect) {
-        label = UILabel(frame: CGRect(x: 10, y: 90, width: 100, height: 44))
-        imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 100, height: 80))
+        label = UILabel(frame: CGRect(x: 0, y: 90, width: 130, height: 44))
+        imageView = UIImageView(frame: CGRect(x: 30, y: 10, width: 80, height: 80))
         imageView.backgroundColor = UIColor.clear
         label.text = "Default"
         label.textColor = UIColor.black
-        label.contentMode = .center
+        label.textAlignment = .center
         super.init(frame: frame)
         self.addSubview(label)
         self.addSubview(imageView)
